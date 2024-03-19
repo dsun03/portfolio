@@ -1,0 +1,6 @@
+Cipher-World:
+An educational platform about cryptography where students learn through direct engagement with ciphers. 
+This site was built using html5, css, javascript, and pandas. All quotes were pulled from a database on kaggle.
+
+Mini-mzage:\
+A simple single-player coin-collecting minigame, utilizing Java PApplet and class polymorphism to represent different players and coins
