@@ -12,16 +12,44 @@
         <title>Daniel's Personal Portfolio</title>
     </head>
     <body>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const resumeButton = document.querySelector('a[href="#resume"]');
+                const resumeSection = document.getElementById('resume');
+                let resumeVisible=false;
+    
+                resumeButton.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    if (!resumeVisible){
+                        resumeSection.style.display = 'block';
+                        resumeSection.scrollIntoView({ behavior: 'smooth' });
+                        resumeVisible=true;
+                    }
+                    else{
+                        resumeSection.style.display = 'none';
+                        resumeSection.scrollIntoView({ behavior: 'smooth' });
+                        resumeVisible = false;
+                    }
+                });
+                
+            });
+            
+        </script>
         <nav id="navbar">
             <ul id="nav-list">
                 <li><a href="#welcome-section">About</a></li>
+                <li><a href="#resume">Resume</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
+                
             </ul>
         </nav>
 
         <main id="main-content">
             <section id="welcome-section">
+                <div class="pfp">
+                    <img src="public\mypic.jpg" alt="Profile Picture" style="width:300px;height:300px;border-radius:10px;">
+                </div>
                 <div class="waviy">
                     <span style="--i:1">H</span>
                     <span style="--i:2">e</span>
@@ -34,35 +62,45 @@
                     <span style="--i:9">r</span>
                     <span style="--i:10">l</span>
                     <span style="--i:11">d</span>
-                    <span style="--i:12"></span>
-                    <span style="--i:13">I</span>
-                    <span style="--i:14">'</span>
-                    <span style="--i:15">m</span>
-                    <span style="--i:16"></span>
-                    <span style="--i:17">D</span>
-                    <span style="--i:18">a</span>
-                    <span style="--i:19">n</span>
-                    <span style="--i:20">i</span>
-                    <span style="--i:21">e</span>
-                    <span style="--i:22">l</span>               
-                   </div>   
-                <h1>Nice to meet you!</h1>
-                <p>I'm a junior at NYU studying computer science and economics</p>
-            </section>
-            <section id="projects">
-                <div class="container">
-                    <div class="row">
-                      <div class="col-md-12 text-center">
-                        <h3 class="animate-character">Here are some of my projects...</h3>
-                      </div>
+                    <span style="--i:12">!</span>
+                    <span style="--i:13"></span>
+                    <span style="--i:14">I</span>
+                    <span style="--i:15">'</span>
+                    <span style="--i:16">m</span>
+                    <span style="--i:17"></span>
+                    <span style="--i:18">D</span>
+                    <span style="--i:19">a</span>
+                    <span style="--i:20">n</span>
+                    <span style="--i:21">i</span>
+                    <span style="--i:22">e</span>
+                    <span style="--i:23">l</span>               
+                </div>   
+                   <h1>Nice to meet you!</h1>
+                   <p>I'm a junior at NYU studying computer science and economics</p>
+                </section>
+                <section id="resume" style="display: none;">
+                    <embed 
+                        src="public\Sun, Daniel - Resume 2024.pdf"
+                        type="application/pdf"
+                        width="75%"
+                        height="90%"
+                    />
+                </section>
+                </section>
+                <section id="projects" class="hidden">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                        <h3 class="animate-character">Here are some of my projects...</h3>                      </div>
                     </div>
                   </div>
                 
                 <div class="projects-grid">
-                    <div class="flip-card">
+                    
+                    <a href="https://github.com/dsun03/Cipher-World"><div class="flip-card">
                         <div class="flip-card-inner">
                           <div class="flip-card-front">
-                            <a href="https://github.com/dsun03/Cipher-World"><img src="public\cipher-proj.png" alt="Avatar" style="width:300px;height:300px;"></a>
+                            <img src="public\cipher-proj.png" alt="Avatar" style="width:300px;height:300px;">
                           </div>
                           <div class="flip-card-back">
                             <h1>Cipher-World</h1>
@@ -71,11 +109,12 @@
                             <p>html5, css, javascript, pandas, kaggle</p>
                           </div>
                         </div>
-                      </div>
-                      <div class="flip-card">
+                        </div>
+                      </a>
+                      <a href="https://github.com/dsun03/instrument_classification"><div class="flip-card">
                         <div class="flip-card-inner">
                           <div class="flip-card-front">
-                            <a href="https://github.com/dsun03/instrument_classification"><img src="public\MFCC.png" alt="Avatar" style="width:300px;height:300px;"></a>
+                           <img src="public\MFCC.png" alt="Avatar" style="width:300px;height:300px;">
                           </div>
                           <div class="flip-card-back">
                             <h1>Instrument Classification</h1>
@@ -85,10 +124,11 @@
                           </div>
                         </div>
                       </div>
-                      <div class="flip-card">
+                      </a>
+                      <a href="https://github.com/dsun03/maze-minigame"><div class="flip-card">
                         <div class="flip-card-inner">
                           <div class="flip-card-front">
-                            <a href="https://github.com/dsun03/maze-minigame"><img src="public\processing-game.png" alt="Avatar" style="width:300px;height:300px;"></a>
+                            <img src="public\processing-game.png" alt="Avatar" style="width:300px;height:300px;">
                           </div>
                           <div class="flip-card-back">
                             <h1>Maze-Minigame</h1>
@@ -98,9 +138,11 @@
                           </div>
                         </div>
                       </div>
+                      </a>
+
                 </div>
             </section>
-            <section id="contact">
+            <section id="contact" class="hidden">
                 <h3>You can find me at...</h3>
                 <div class="social-icons">
                     <a href="https://www.instagram.com/d.sun.03/" target="_blank">
